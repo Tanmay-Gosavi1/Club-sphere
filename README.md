@@ -10,6 +10,19 @@ Install **Expo Go** app (**version 49**)
 
 ---
 
+## Add .env file.
+**Server -> .env**
+```bash
+    MONGODB_URI = ''
+    JWT_SECRET = ''
+    PORT = 5000
+    
+    CLOUDINARY_CLOUD_NAME = ''
+    CLOUDINARY_API_KEY = ''
+    CLOUDINARY_API_SECRET = ""
+    FOLDER_NAME = ''
+```
+    
 ## ⚙️ Installation
 
 1.  **Install Backend Dependencies:** Navigate to the server directory and install the required packages.
