@@ -37,11 +37,12 @@ In your first terminal, navigate to the `server` directory and start the server.
 ```bash
 cd server
 npm run dev
-
-### 2. Start the Frontend Server
+```
+### 2. Start the Frontend
 
 In your second terminal, navigate to the `client` directory and start the client.
 
 ```bash
 cd client
 npm run start
+```
