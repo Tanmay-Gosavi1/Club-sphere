@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { getApiUrl } from '../../config';
 
 const useEventStore = create((set, get) => ({
   events: [],
@@ -12,7 +13,11 @@ const useEventStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      // This would be the actual API call when events are implemented
+      // When events API is implemented, use:
+      // const response = await fetch(`${getApiUrl()}/events/club/${clubId}`, {
+      //   headers: { 'Authorization': `Bearer ${token}` }
+      // });
+      
       // For now, return mock data
       const mockEvents = [
         {
@@ -48,7 +53,17 @@ const useEventStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      // Mock event creation
+      // When events API is implemented, use:
+      // const response = await fetch(`${getApiUrl()}/events`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Authorization': `Bearer ${token}`
+      //   },
+      //   body: JSON.stringify(eventData)
+      // });
+      
+      // Mock event creation for now
       const newEvent = {
         _id: Date.now().toString(),
         ...eventData,

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getApiUrl } from '../../config';
 
 const useAuthStore = create((set, get) => ({
   user: null,
@@ -36,14 +37,15 @@ const useAuthStore = create((set, get) => ({
     try {
       console.log('🔄 Starting login process...');
       console.log('📧 Email:', email);
-      console.log('🌐 API URL: http://10.151.100.157:5000/api/auth/login');
+      const apiUrl = `${getApiUrl()}/auth/login`;
+      console.log('🌐 API URL:', apiUrl);
       
       set({ loading: true, error: null });
       
       const requestBody = JSON.stringify({ email, password });
       console.log('📦 Request body:', requestBody);
       
-      const response = await fetch('http://10.151.100.157:5000/api/auth/login', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +110,7 @@ const useAuthStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch('http://10.151.100.157:5000/api/auth/signup', {
+      const response = await fetch(`${getApiUrl()}/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +149,7 @@ const useAuthStore = create((set, get) => ({
       const { token } = get();
       
       if (token) {
-        await fetch('http://10.151.100.157:5000/api/auth/logout', {
+        await fetch(`${getApiUrl()}/auth/logout`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { getApiUrl } from '../../config';
 
 const useClubStore = create((set, get) => ({
   clubs: [],
@@ -19,7 +20,7 @@ const useClubStore = create((set, get) => ({
         return { success: false, error: 'Authentication required' };
       }
       
-      const response = await fetch('http://10.151.100.157:5000/api/clubs/allClubs', {
+      const response = await fetch(`${getApiUrl()}/clubs/allClubs`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -45,7 +46,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch('http://10.151.100.157:5000/api/clubs/createClub', {
+      const response = await fetch(`${getApiUrl()}/clubs/createClub`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch(`http://10.151.100.157:5000/api/clubs/join/${clubId}`, {
+      const response = await fetch(`${getApiUrl()}/clubs/join/${clubId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,7 +104,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch('http://10.151.100.157:5000/api/clubs/my-requests', {
+      const response = await fetch(`${getApiUrl()}/clubs/my-requests`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -129,7 +130,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch('http://10.151.100.157:5000/api/clubs/pending', {
+      const response = await fetch(`${getApiUrl()}/clubs/pending`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -155,7 +156,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch(`http://10.151.100.157:5000/api/clubs/approve/${clubId}`, {
+      const response = await fetch(`${getApiUrl()}/clubs/approve/${clubId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -187,7 +188,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch(`http://10.151.100.157:5000/api/clubs/reject/${clubId}`, {
+      const response = await fetch(`${getApiUrl()}/clubs/reject/${clubId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -217,7 +218,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch('http://10.151.100.157:5000/api/clubs/membership-requests/pending', {
+      const response = await fetch(`${getApiUrl()}/clubs/membership-requests/pending`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -243,7 +244,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch(`http://10.151.100.157:5000/api/clubs/membership-requests/approve/${requestId}`, {
+      const response = await fetch(`${getApiUrl()}/clubs/membership-requests/approve/${requestId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -273,7 +274,7 @@ const useClubStore = create((set, get) => ({
     try {
       set({ loading: true, error: null });
       
-      const response = await fetch(`http://10.151.100.157:5000/api/clubs/membership-requests/reject/${requestId}`, {
+      const response = await fetch(`${getApiUrl()}/clubs/membership-requests/reject/${requestId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

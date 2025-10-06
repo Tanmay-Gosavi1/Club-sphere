@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getApiUrl } from '../../config';
 
-const BASE_URL = 'http://10.151.100.157:5000/api';
+const BASE_URL = getApiUrl();
 
 class ApiService {
   constructor() {
