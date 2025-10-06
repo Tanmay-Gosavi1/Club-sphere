@@ -268,12 +268,12 @@ const ProfileScreen = ({ navigation }) => {
         )}
 
         {/* Logout Section */}
-        <Animatable.View animation="fadeIn" delay={1000} style={styles.logoutSection}>
+        {/* <Animatable.View animation="fadeIn" delay={1000} style={styles.logoutSection}>
           <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
             <Ionicons name="log-out-outline" size={20} color={colors.error} />
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
-        </Animatable.View>
+        </Animatable.View> */}
 
         {/* Version Info */}
         <View style={styles.versionInfo}>
