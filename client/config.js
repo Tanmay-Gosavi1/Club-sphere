@@ -1,7 +1,7 @@
 // Environment configuration
 const ENV = {
   development: {
-    API_BASE_URL: 'http://localhost:5000/api', // Default for local development
+    API_BASE_URL: 'http://10.161.128.79:5000/api', // Default for local development
     // For physical device testing, replace 'localhost' with your computer's IP address
     // Example: 'http://192.168.1.100:5000/api'
   },

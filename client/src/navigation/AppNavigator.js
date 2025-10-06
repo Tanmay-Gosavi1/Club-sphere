@@ -18,6 +18,7 @@ import ClubDetailsScreen from '../screens/clubs/ClubDetailsScreen';
 import CreateClubScreen from '../screens/clubs/CreateClubScreen';
 import AdminScreen from '../screens/admin/AdminScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
+import HelpSupportScreen from '../screens/help/HelpSupportScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -128,12 +129,40 @@ const MainTabs = () => {
       )}
       <Tab.Screen 
         name="Profile" 
-        component={ProfileScreen}
-        options={{ tabBarLabel: 'Profile' }}
+        component={ProfileStack}
+        options={{ tabBarLabel: 'Profile', headerShown: false }}
       />
     </Tab.Navigator>
   );
 };
+
+// Profile Stack Navigator
+const ProfileStack = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: colors.primary,
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+  >
+    <Stack.Screen 
+      name="ProfileHome" 
+      component={ProfileScreen}
+      options={{ title: 'Profile' }}
+    />
+    <Stack.Screen 
+      name="HelpSupport" 
+      component={HelpSupportScreen}
+      options={{ title: 'Help & Support' }}
+    />
+  </Stack.Navigator>
+);
 
 // Main App Navigator
 const AppNavigator = () => {

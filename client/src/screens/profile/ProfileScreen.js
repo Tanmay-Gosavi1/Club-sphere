@@ -103,15 +103,16 @@ const ProfileScreen = ({ navigation }) => {
     {
       icon: 'help-circle-outline',
       title: 'Help & Support',
-      subtitle: 'Get help and contact support',
-      color: colors.warning,
-      onPress: () => {
-        Toast.show({
-          type: 'info',
-          text1: 'Coming Soon',
-          text2: 'Help & Support feature will be available soon!',
-        });
-      },
+      subtitle: 'About app and support',
+      color: colors.success,
+      onPress: () => navigation.navigate('HelpSupport'),
+    },
+    {
+      icon: 'log-out-outline',
+      title: 'Logout',
+      subtitle: 'Sign out of your account',
+      color: colors.error,
+      onPress: handleLogout,
     },
   ];
 
